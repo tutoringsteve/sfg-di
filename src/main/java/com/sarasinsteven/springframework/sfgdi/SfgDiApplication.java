@@ -1,6 +1,10 @@
 package com.sarasinsteven.springframework.sfgdi;
 
+import com.sarasinsteven.springframework.sfgdi.controllers.ConstructorInjectedController;
 import com.sarasinsteven.springframework.sfgdi.controllers.MyController;
+import com.sarasinsteven.springframework.sfgdi.controllers.PropertyInjectedController;
+import com.sarasinsteven.springframework.sfgdi.controllers.SetterInjectedController;
+import com.sarasinsteven.springframework.sfgdi.services.GreetingServiceImplementation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -21,6 +25,25 @@ public class SfgDiApplication {
 		String greeting = myController.sayHello();
 
 		System.out.println(greeting);
+
+		System.out.println("------ Property");
+		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
+
+		//Not needed when we @Autowire the GreetingService property in PropertyInjectedController
+		//But don't forget to also add @Service to the GreetingServiceImplementation class
+		//propertyInjectedController.greetingService = new GreetingServiceImplementation();
+
+		System.out.println(propertyInjectedController.getGreeting());
+
+		System.out.println("------ Setter");
+		SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
+
+		System.out.println(setterInjectedController.getGreeting());
+
+		System.out.println("------ Constructor");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+
+		System.out.println(constructorInjectedController.getGreeting());
 	}
 
 }
