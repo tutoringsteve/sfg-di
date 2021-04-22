@@ -1,6 +1,7 @@
 package com.sarasinsteven.springframework.sfgdi.controllers;
 
 import com.sarasinsteven.springframework.sfgdi.services.GreetingService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -10,7 +11,8 @@ public class ConstructorInjectedController {
 
     //The @Autowired annotation is actually optional for a Constructor!
     //@Autowired
-    public ConstructorInjectedController(GreetingService greetingService) {
+    //@Qualifier with the lowerCamelCase bean name tells Spring which implementation to use when injecting.
+    public ConstructorInjectedController(@Qualifier("constructorInjectedGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 

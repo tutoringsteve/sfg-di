@@ -5,11 +5,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 //Tells Spring that of the two implementations of the GreetingService interface, this is the implementation bean for Spring to consume.
-@Primary
 @Service
 public class ConstructorInjectedGreetingService implements GreetingService {
     @Override
     public String sayGreeting() {
-        return "Hello World2!";
+        return "Hello World - Constructor Injected!";
     }
 }
