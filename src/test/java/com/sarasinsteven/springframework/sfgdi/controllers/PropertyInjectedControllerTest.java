@@ -1,10 +1,8 @@
 package com.sarasinsteven.springframework.sfgdi.controllers;
 
-import com.sarasinsteven.springframework.sfgdi.services.GreetingServiceImplementation;
+import com.sarasinsteven.springframework.sfgdi.services.PropertyInjectedGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PropertyInjectedControllerTest {
 
@@ -16,7 +14,7 @@ class PropertyInjectedControllerTest {
         //mimicking what the SpringFrame Work would be doing
         controller = new PropertyInjectedController();
 
-        controller.greetingService = new GreetingServiceImplementation();
+        controller.greetingService = new PropertyInjectedGreetingService();
     }
 
     @Test

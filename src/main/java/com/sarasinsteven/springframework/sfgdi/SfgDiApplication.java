@@ -4,7 +4,6 @@ import com.sarasinsteven.springframework.sfgdi.controllers.ConstructorInjectedCo
 import com.sarasinsteven.springframework.sfgdi.controllers.MyController;
 import com.sarasinsteven.springframework.sfgdi.controllers.PropertyInjectedController;
 import com.sarasinsteven.springframework.sfgdi.controllers.SetterInjectedController;
-import com.sarasinsteven.springframework.sfgdi.services.GreetingServiceImplementation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -30,8 +29,8 @@ public class SfgDiApplication {
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 
 		//Not needed when we @Autowire the GreetingService property in PropertyInjectedController
-		//But don't forget to also add @Service to the GreetingServiceImplementation class
-		//propertyInjectedController.greetingService = new GreetingServiceImplementation();
+		//But don't forget to also add @Service to the PropertyInjectedGreetingService class
+		//propertyInjectedController.greetingService = new PropertyInjectedGreetingService();
 
 		System.out.println(propertyInjectedController.getGreeting());
 

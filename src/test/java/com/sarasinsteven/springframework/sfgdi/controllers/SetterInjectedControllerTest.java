@@ -1,6 +1,6 @@
 package com.sarasinsteven.springframework.sfgdi.controllers;
 
-import com.sarasinsteven.springframework.sfgdi.services.GreetingServiceImplementation;
+import com.sarasinsteven.springframework.sfgdi.services.PropertyInjectedGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServiceImplementation());
+        controller.setGreetingService(new PropertyInjectedGreetingService());
     }
 
     @Test
